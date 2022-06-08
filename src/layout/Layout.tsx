@@ -37,6 +37,7 @@ bottom: 0;
 font-weight: bold;
 & a:hover{
     color: salmon;
+    font-style: italic;
 }
 `
 
