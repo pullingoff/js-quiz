@@ -9,7 +9,7 @@ outline: none;
 vertical-align: middle;
 text-decoration: none;
 transform-style:preserve-3d;
-font-size: inherit;
+font-size: 1.3rem;
 line-height: 1.6;
 font-family: inherit;
 font-weight: 600;
@@ -22,7 +22,7 @@ user-select: none;
 transition: transform 0.15s ease-out, background 0.15s ease-out;
 
 &:hover {
-    background:#ffe9e9;
+    // background:#ffe9e9;
     transform:translateY(0.25em);
 }
 &::before {
