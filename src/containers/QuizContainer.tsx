@@ -19,22 +19,26 @@ function QuizContainer() {
   return (
     <>
       {page===0 && (
-        <Main>
+        <>
           <Header>😎 자스퀴즈 💻</Header>
           <Introduction cnt={quizzes.length} />
           <PinkButton text="퀴즈 시작!" clickEvent={() => {
             dispatch(next())
           }} />
-        </Main>
+          </>
+        // </Main>
       )}
       {page > 0 && page <= quizzes.length && (
-        <Main>
-          <ResetBtn onClick={goHome}>리셋 ⏰</ResetBtn>
+        // <Main>
+        <>
+          <ResetBtn onClick={goHome}>처음으로 돌아가기 ⏰</ResetBtn>
           <Quiz/>
-        </Main>
+        </>
+        // </Main>
       )}
       {page > quizzes.length && (
-        <Main>
+        // <Main>
+        <>
           <Header>끝!</Header>
           <Header>당신의 점수는 <br/>
               100점 만점에&nbsp;
@@ -47,7 +51,8 @@ function QuizContainer() {
           <ResetBtn onClick={()=> {
             dispatch(reset())
           }}>첫 화면으로 가기 ⏰</ResetBtn>
-        </Main>
+        
+        </>
       )}
     </>
   );
@@ -74,7 +79,8 @@ font-size: 3rem;
 `
 
 const ResetBtn = styled.button`
-border: none;
+border: 1px solid lightgrey;
+margin: auto;
 font-size: 1.3rem;
 background: transparent;
 font-weight: bold;
@@ -84,8 +90,5 @@ cursor: pointer;
 }
 `
 
-const Main = styled.main`
-text-align: center;
-`
 
 export default QuizContainer;

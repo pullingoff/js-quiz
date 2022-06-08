@@ -20,7 +20,7 @@ export function Quiz() {
     const quiz = quizList[page-1]
     const answers = shuffle(quiz.a) as AnswerType[]
     return (
-        <>
+        <Container>
             <Question>
                 {quiz.q}
             </Question>
@@ -28,18 +28,23 @@ export function Quiz() {
                 let answer = ans.text
                 return (
                     <BlueButton 
-                        key={idx}
-                        text={answer} 
-                        clickEvent={()=> {
-                            onSubmit(ans.isCorrect)
-                        }}
+                    key={idx}
+                    text={answer} 
+                    clickEvent={()=> {
+                        onSubmit(ans.isCorrect)
+                    }}
                     />
-                );
-            })}
-            <Progress page={page} maxPage={quizList.length}></Progress>
-        </>
+                    );
+                })}
+                <Progress page={page} maxPage={quizList.length} />
+            
+        </Container>
     )
 }
+
+const Container = styled.section`
+margin: 2rem 0;
+`
 
 const Question = styled.h1`
 margin: 2rem;

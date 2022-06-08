@@ -3,9 +3,7 @@ import styled from "styled-components"
 
 const ProgressDiv = styled.div`
 width: 100%;
-height: 5px;
-background: #f7f7f7;
-margin-top: 10px;
+margin-top: 20px;
 `
 
 const SpanFill = styled.span`
@@ -13,12 +11,12 @@ background: #449ce2;
 display:inline-block;
 height: inherit;
 position: relative;
-top: -4px;
+top: -11px;
 `;
 
 const Gauge = styled.div`
 width: 100%;
-height: 10px;
+height: 3px;
 background: #f7f7f7;
 margin-top: 10px;
 text-align: left;
