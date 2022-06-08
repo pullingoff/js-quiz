@@ -1,11 +1,12 @@
 // 상태: 사용자가 응답한 목록, [값, 값, 값]
-import quizzes, { IQuiz } from "../data/quizList"
+import quizzes, { AnswerType, IQuiz } from "../data/quizList"
 
 // 액션 타입 
 // as const 해줘야 액션 타입 추론할때 string 아니고 뫄뫄/뫄뫄 로 됨
 const CHECK_CORRECT = "test/CHECK_CORRECT" as const;
 const NEXT_PAGE = "test/NEXT_PAGE" as const;
 const RESET = "test/RESET" as const;
+const GO_TO_FIRST = "test/GO_TO_FIRST" as const;
 
 // 액션 생성 함수들
 export function check({isCorrect} : {
@@ -30,22 +31,29 @@ export function reset() {
     }
 }
 
+export function goToFirst() {
+    return {
+        type: GO_TO_FIRST,
+    }
+}
+
 type ResultAction =
 | ReturnType<typeof check>
 | ReturnType<typeof next>
-| ReturnType<typeof reset>;
+| ReturnType<typeof reset>
+| ReturnType<typeof goToFirst>;
 
 type ResultState = {
     score: number,
     quizzes: IQuiz[],
-    answers: [],
+    // answers: AnswerType[],
     page: number
 }
 
 const initialState : ResultState = {
     score: 0,
     quizzes: quizzes,
-    answers: [],
+    // answers: [],
     page: 0 // 0: intro, 1~quizzes.length :퀴즈, quizzes.length +1: 마지막
 }
 
@@ -54,12 +62,13 @@ export default function result(
         state : ResultState = initialState,
         action : ResultAction
     ) {
+        const pageCnt = quizzes.length
     switch (action.type) {
         case CHECK_CORRECT:  // 답변을 했으면 기존에 있던 answers+새 answer를 합친 배열을 다시 state에 저장
             return {
                 ...state,
                 score: action.payload.isCorrect 
-                ? state.score + 10  // 맞추면 10점 획득
+                ? state.score + Math.round(100/pageCnt) // 맞추면 10점 획득
                 : state.score,
                 // answers: [...state.answers, action.payload.answer]
             }
@@ -73,6 +82,12 @@ export default function result(
                 ...state,
                 score: 0,
                 page: 0
+            }
+        case GO_TO_FIRST:
+            return {
+                ...state,
+                score: 0,
+                page: 1
             }
         default:
             return state;
