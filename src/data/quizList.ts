@@ -1,15 +1,15 @@
-export interface IQuiz {
+export type IQuiz = {
     q: string
-    a: IAnswer[]
+    a: AnswerType[]
     why?: string
 }
 
-export interface IAnswer {
+export type AnswerType = {
     text: string
     isCorrect: boolean
 }
 
-const quizzes : IQuiz[] = [
+const orgQuizzes : IQuiz[] = [
     {
         q: "서버가 보낸 HTML, CSS로 DOM 트리, CSSOM 트리를 만드는 것은?",
         a: [
@@ -65,4 +65,22 @@ const quizzes : IQuiz[] = [
     },
 ]
 
-export default quizzes;
+export function shuffle(array: any[]) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
+export default shuffle(orgQuizzes);
