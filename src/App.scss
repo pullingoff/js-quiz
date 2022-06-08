@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Noto Sans KR', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700;900&display=swap');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../public/fonts/Pretendard-ExtraBold.otf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../public/fonts/Pretendard-ExtraLight.otf');
+    font-weight: normal;
+}
+
+html {
+    font-family: 'Pretendard';
+}
