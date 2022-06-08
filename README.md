@@ -1,6 +1,13 @@
 # 😎 자스퀴즈
 
-자바스크립트 문제를 풀어보며 개념을 익히세요!  
+<img width="900" alt="자스퀴즈 메인" src="https://user-images.githubusercontent.com/50111853/172633204-9c18dd62-7dd0-4cc0-8fdb-eff914ffda50.png">
+
+✔ **기술면접 준비중이신 분  
+✔ 자바스크립트 개념을 공부하고 싶으신 분  
+✔ 내가 얼마나 알고 있는지 테스트해보고 싶으신 분**
+
+냉큼! 자스퀴즈로 달려오세요!
+
 [🔗 (클릭!) 풀어보러가기](https://pullingoff.github.io/js-quiz)
 
 ## 개발 기간
