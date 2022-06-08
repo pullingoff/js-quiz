@@ -4,35 +4,44 @@ import {BlueButton} from "./BlueButton"
 import { RootState } from "../modules";
 import {Progress} from "./Progress"
 import {next, check} from "../modules/result"
+import styled from "styled-components";
+import { IQuiz, shuffle } from "../data/quizList";
+import { AnswerType } from "../data/quizList";
 
 export function Quiz() {
     const dispatch = useDispatch();
-    const quiz = useSelector((state : RootState) => state.result.quizzes);
+    const quizList = useSelector((state : RootState) => state.result.quizzes);
     const page = useSelector((state : RootState) => state.result.page);
 
     const onSubmit = (isCorrect: boolean) => {
         dispatch(check({isCorrect: isCorrect}));
         dispatch(next());
     }
-    
+    const quiz = quizList[page-1]
+    const answers = shuffle(quiz.a) as AnswerType[]
     return (
         <>
-            <h1 style={{margin: "50px 0"}}>
-                {quiz[page-1].q}
-            </h1>
-            {quiz[page-1].a.map((item) => {
-                let answer = item.text
+            <Question>
+                {quiz.q}
+            </Question>
+            {answers.map((ans, idx) => {
+                let answer = ans.text
                 return (
                     <BlueButton 
-                        key={answer}
+                        key={idx}
                         text={answer} 
                         clickEvent={()=> {
-                            onSubmit(item.isCorrect)
+                            onSubmit(ans.isCorrect)
                         }}
                     />
                 );
             })}
-            <Progress page={page} maxPage={quiz.length}></Progress>
+            <Progress page={page} maxPage={quizList.length}></Progress>
         </>
     )
 }
+
+const Question = styled.h1`
+margin: 2rem;
+
+`
