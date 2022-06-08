@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+// import "./public/styles/index.scss"
 // import reportWebVitals from './reportWebVitals';
 
 // 리덕스를 위한 코드
