@@ -1,10 +1,14 @@
-# JS Quiz
+# 😎 자스퀴즈
 
-2022년 6월 개발 시작 ~ 개발 중입니다!
+자바스크립트 문제를 풀어보며 개념을 익히세요!  
+[🔗 (클릭!) 풀어보러가기](https://pullingoff.github.io/js-quiz)
+
+## 개발 기간
+2022년 6월 ~
 
 ## 사용한 기술들
  
-`TypeScript` `Redux`
+`TypeScript` `Redux` `Styled-components`
 
 ## 추가 예정
 
