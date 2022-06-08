@@ -1,9 +1,6 @@
-// Provider react 새로운 버전 이슈 있어서 js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import "./public/styles/index.scss"
-// import reportWebVitals from './reportWebVitals';
 
 // 리덕스를 위한 코드
 import {createStore} from "redux"
