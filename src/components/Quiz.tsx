@@ -13,7 +13,7 @@ export function Quiz() {
     const quizList = useSelector((state : RootState) => state.result.quizzes);
     const page = useSelector((state : RootState) => state.result.page);
 
-    const onSubmit = (isCorrect: boolean, idx: number) => {
+    const clickHandler = (isCorrect: boolean, idx: number) => {
         dispatch(check({isCorrect: isCorrect, qIdx: idx}));
         dispatch(next());
     }
@@ -32,7 +32,7 @@ export function Quiz() {
                     key={idx}
                     text={answer} 
                     clickEvent={()=> {
-                        onSubmit(ans.isCorrect, quiz.idx)
+                        clickHandler(ans.isCorrect, quiz.idx)
                     }}
                     />
                     );
