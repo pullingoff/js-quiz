@@ -3,19 +3,25 @@ import quizzes, { AnswerType, IQuiz } from "../data/quizList"
 
 // 액션 타입 
 // as const 해줘야 액션 타입 추론할때 string 아니고 뫄뫄/뫄뫄 로 됨
-const CHECK_CORRECT = "test/CHECK_CORRECT" as const;
-const NEXT_PAGE = "test/NEXT_PAGE" as const;
-const RESET = "test/RESET" as const;
-const GO_TO_FIRST = "test/GO_TO_FIRST" as const;
+const CHECK_CORRECT = "result/CHECK_CORRECT" as const;
+const NEXT_PAGE = "result/NEXT_PAGE" as const;
+const RESET = "result/RESET" as const;
+const GO_TO_FIRST = "result/GO_TO_FIRST" as const;
 
+type CheckType = {
+    isCorrect: boolean
+    qIdx: number
+}
 // 액션 생성 함수들
-export function check({isCorrect} : {
-    isCorrect : boolean
-}) {
+export function check(props : CheckType) {
+    
     return {
         type: CHECK_CORRECT,
-        // 액션에 필요한 값을 페이로드라고 함.
-        payload: {isCorrect}
+        payload: {
+            isCorrect : props.isCorrect,
+            quizIdx : props.qIdx
+            // ...props
+        }, // 액션에 필요한 값
     }
 }
 
@@ -46,6 +52,7 @@ type ResultAction =
 type ResultState = {
     score: number,
     quizzes: IQuiz[],
+    wrongQuizIndexes: number[],
     // answers: AnswerType[],
     page: number
 }
@@ -53,7 +60,7 @@ type ResultState = {
 const initialState : ResultState = {
     score: 0,
     quizzes: quizzes,
-    // answers: [],
+    wrongQuizIndexes: [],
     page: 0 // 0: intro, 1~quizzes.length :퀴즈, quizzes.length +1: 마지막
 }
 
@@ -65,12 +72,15 @@ export default function result(
         const pageCnt = quizzes.length
     switch (action.type) {
         case CHECK_CORRECT:  // 답변을 했으면 기존에 있던 answers+새 answer를 합친 배열을 다시 state에 저장
+            
             return {
                 ...state,
                 score: action.payload.isCorrect 
                 ? state.score + Math.round(100/pageCnt) // 맞추면 10점 획득
                 : state.score,
-                // answers: [...state.answers, action.payload.answer]
+                wrongQuizIndexes: action.payload.isCorrect
+                ? [...state.wrongQuizIndexes]
+                : [...state.wrongQuizIndexes, action.payload.quizIdx]
             }
         case NEXT_PAGE:
             return {

@@ -13,10 +13,11 @@ export function Quiz() {
     const quizList = useSelector((state : RootState) => state.result.quizzes);
     const page = useSelector((state : RootState) => state.result.page);
 
-    const onSubmit = (isCorrect: boolean) => {
-        dispatch(check({isCorrect: isCorrect}));
+    const onSubmit = (isCorrect: boolean, idx: number) => {
+        dispatch(check({isCorrect: isCorrect, qIdx: idx}));
         dispatch(next());
     }
+    
     const quiz = quizList[page-1]
     const answers = shuffle(quiz.a) as AnswerType[]
     return (
@@ -31,7 +32,7 @@ export function Quiz() {
                     key={idx}
                     text={answer} 
                     clickEvent={()=> {
-                        onSubmit(ans.isCorrect)
+                        onSubmit(ans.isCorrect, quiz.idx)
                     }}
                     />
                     );
