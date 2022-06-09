@@ -10,7 +10,12 @@ const Wrongs = ({wrongIdxList}: {
     
     return (
         <>
-            <h2>틀린 문제 다시 보기</h2>
+            {wrongIdxList.length > 0 &&
+                <h3>📝 틀린 문제 다시 보기 📝</h3>
+            }
+            {wrongIdxList.length ==0 &&
+                <p style={{fontSize: '1.3rem'}}>야생의 '<i>자바스크립트 고수</i>'가 나타났습니다 🥇</p>    
+            }
             {list?.map((quiz) => (
                 <QuizContainer key={quiz.idx}>
                     <summary style={{fontSize: '1.1rem'}}>{quiz.q}</summary>
@@ -22,7 +27,7 @@ const Wrongs = ({wrongIdxList}: {
 }
 
 const QuizContainer = styled.details`
-border: 1px solid grey;
+border: 0.5px solid grey;
 cursor: pointer;
 padding: 2px;
 &:hover {
