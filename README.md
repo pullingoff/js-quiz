@@ -15,7 +15,7 @@
 
 ## 사용한 기술들
  
-`TypeScript` `Redux` `Styled-components`
+`TypeScript` `Redux` `Styled-components` `sass`
 
 ## 추가 예정
 
