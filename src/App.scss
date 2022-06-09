@@ -21,5 +21,8 @@ html {
 
 a {
     text-decoration: none;
-    color: initial;
+    color: black;
+    &:hover {
+        color: black;
+    }
 }

@@ -11,10 +11,10 @@ const Wrongs = ({wrongIdxList}: {
     return (
         <>
             {wrongIdxList.length > 0 &&
-                <h3>📝 틀린 문제 다시 보기 📝</h3>
+                <BigP>📝 틀린 문제 다시 보기 📝</BigP>
             }
             {wrongIdxList.length ==0 &&
-                <p style={{fontSize: '1.3rem'}}>야생의 '<i>자바스크립트 고수</i>'가 나타났습니다 🥇</p>    
+                <BigP>야생의 '<i>자바스크립트 고수</i>'가 나타났습니다 🥇</BigP>    
             }
             {list?.map((quiz) => (
                 <QuizContainer key={quiz.idx}>
@@ -26,10 +26,14 @@ const Wrongs = ({wrongIdxList}: {
     )
 }
 
+const BigP = styled.p`
+font-size: 1.3rem;
+`
+
 const QuizContainer = styled.details`
 border: 0.5px solid grey;
 cursor: pointer;
-padding: 2px;
+padding: 0.5rem;
 &:hover {
     background: #feffe2;
 }
