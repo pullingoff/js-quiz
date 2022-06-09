@@ -15,14 +15,14 @@
 
 ## 사용한 기술들
  
-`TypeScript` `Redux` `Styled-components`
+`TypeScript` `Redux` `Styled-components` `sass`
 
 ## 추가 예정
 
-- 사용자 닉네임 받기 
 - 난이도 설정
 - 문제 갯수 설정
 
 ## 구현 완료
+- ~~사용자 닉네임 받기~~
 - ~~문제 순서 랜덤으로~~
-- 답 순서 랜덤으로 
+- ~~답 순서 랜덤으로~~
