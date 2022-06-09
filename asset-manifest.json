@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/js-quiz/static/css/main.0a36e12a.css",
+    "main.js": "/js-quiz/static/js/main.9ec70458.js",
+    "static/media/Pretendard-ExtraBold.otf": "/js-quiz/static/media/Pretendard-ExtraBold.6a8d330cb367af8c7a57.otf",
+    "static/media/Pretendard-ExtraLight.otf": "/js-quiz/static/media/Pretendard-ExtraLight.6591d0775b8172aee406.otf",
+    "index.html": "/js-quiz/index.html",
+    "main.0a36e12a.css.map": "/js-quiz/static/css/main.0a36e12a.css.map",
+    "main.9ec70458.js.map": "/js-quiz/static/js/main.9ec70458.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a36e12a.css",
+    "static/js/main.9ec70458.js"
+  ]
+}
