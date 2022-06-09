@@ -41,6 +41,7 @@ function QuizContainer() {
           <Header>😎 자스퀴즈 💻</Header>
           <Introduction cnt={quizzes.length} />
           <StyledInput type='text' 
+                      maxLength={10}
                          placeholder='닉네임(선택)' 
                          value={tempname}
                          onChange={handleChange}
@@ -84,6 +85,7 @@ const StyledInput = styled.input`
 display: block;
 padding: 5px;
 border: 1px solid #fff0a6;
+background: #fff0a6;
 outline: none;
 margin-bottom: 1rem;
 font-size: 1.1rem;
