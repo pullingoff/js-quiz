@@ -53,7 +53,6 @@ type ResultState = {
     score: number,
     quizzes: IQuiz[],
     wrongQuizIndexes: number[],
-    // answers: AnswerType[],
     page: number
 }
 
@@ -61,7 +60,8 @@ const initialState : ResultState = {
     score: 0,
     quizzes: quizzes,
     wrongQuizIndexes: [],
-    page: 0 // 0: intro, 1~quizzes.length :퀴즈, quizzes.length +1: 마지막
+    page: 0 
+    // 0: intro, 1~quizzes.length :퀴즈, quizzes.length +1: 마지막
 }
 
 // reducer
@@ -88,10 +88,12 @@ export default function result(
                 page: state.page +1
             };
         case RESET:
+            // 변수 모두 리셋
             return {
                 ...state,
                 score: 0,
-                page: 0
+                page: 0,
+                wrongQuizIndexes: []
             }
         case GO_TO_FIRST:
             return {
