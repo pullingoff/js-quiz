@@ -1,4 +1,5 @@
 export type IQuiz = {
+    idx: number
     q: string
     a: AnswerType[]
     why?: string
@@ -10,7 +11,8 @@ export type AnswerType = {
 }
 
 const orgQuizzes : IQuiz[] = [
-    {
+    {   
+        idx: 0,
         q: "서버가 보낸 HTML, CSS로 DOM 트리, CSSOM 트리를 만드는 것은?",
         a: [
             {
@@ -25,6 +27,7 @@ const orgQuizzes : IQuiz[] = [
         why: ""
     },
     {
+        idx: 1,
         q: "자바스크립트 엔진에 포함되지 않는 것은?",
         a: [
             {
@@ -46,7 +49,8 @@ const orgQuizzes : IQuiz[] = [
         ],
         why: "HTML 파서는 브라우저 렌더링 엔진에 속합니다."
     },
-    {
+    {   
+        idx: 2,
         q: "자바스크립트 엔진의 각 영역과 설명이 잘못 연결된 것은?",
         a: [
             {
@@ -59,6 +63,32 @@ const orgQuizzes : IQuiz[] = [
             },
             {
                 text: "메모리 힙: 동적으로 만들어진 인스턴스가 메모리에 할당되는 곳",
+                isCorrect: false
+            },
+            {
+                text: "테크 스택: 원시 타입 데이터를 저장함",
+                isCorrect: true
+            }
+        ]
+    },
+    {   
+        idx: 3,
+        q: "자바스크립트 예약어가 아닌 것은?",
+        a: [
+            {
+                text: "await",
+                isCorrect: false
+            },
+            {
+                text: "that",
+                isCorrect: true
+            },
+            {
+                text: "while",
+                isCorrect: false
+            },
+            {
+                text: "case",
                 isCorrect: false
             }
         ]
