@@ -35,9 +35,9 @@ padding: 1rem;
 position: fixed;
 bottom: 0;
 font-weight: bold;
+font-style: italic;
 & a:hover{
     color: salmon;
-    font-style: italic;
 }
 `
 
