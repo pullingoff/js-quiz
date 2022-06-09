@@ -94,6 +94,74 @@ const orgQuizzes : IQuiz[] = [
         ],
         why: "'this'는 예약어지만 'that'은 없습니다."
     },
+    {   
+        idx: 4,
+        q: "자바스크립트에서 이벤트 버블링을 막는 이벤트 API는?",
+        a: [
+            {
+                text: "event.stopBubbling()",
+                isCorrect: false
+            },
+            {
+                text: "event.stopPropagation()",
+                isCorrect: true
+            },
+        ]
+    },
+    {   
+        idx: 5,
+        q: "한 DOM 요소에 이벤트가 발생했을 경우, 이벤트가 최상단의 부모 요소에서부터 전달되어 내려오는 현상은?",
+        a: [
+            {
+                text: "이벤트 캡쳐링",
+                isCorrect: true
+            },
+            {
+                text: "이벤트 디폴트",
+                isCorrect: false
+            },
+            {
+                text: "이벤트 되물림",
+                isCorrect: false
+            },
+        ]
+    },
+    {   
+        idx: 6,
+        q: "console.log('문자열'/2); 의 결과는?",
+        a: [
+            {
+                text: "NaN",
+                isCorrect: true
+            },
+            {
+                text: "null",
+                isCorrect: false
+            },
+            {
+                text: "false",
+                isCorrect: false
+            },
+        ]
+    },
+    {   
+        idx: 7,
+        q: "'자신이 선언됐을 때의 렉시컬 환경을 기억하는 함수'는 무엇의 설명일까요?",
+        a: [
+            {
+                text: "클로저",
+                isCorrect: true
+            },
+            {
+                text: "바인드",
+                isCorrect: false
+            },
+            {
+                text: "컨텍스트",
+                isCorrect: false
+            },
+        ]
+    },
 ]
 
 export function shuffle(array: any[]) {

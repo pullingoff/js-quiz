@@ -26,7 +26,7 @@ text-align: center;
 `
 
 const Main = styled.main`
-margin-top: 20px;
+margin: 10px 20px 5vh 10px;
 `
 
 const Footer = styled.footer`
