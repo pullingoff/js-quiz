@@ -8,6 +8,10 @@ const Wrongs = ({wrongIdxList}: {
 
     const list = quizList.filter(elem => wrongIdxList.includes(elem.idx))
     
+    const getAnswer = (answerList: AnswerType[]) => {
+        return answerList.filter((a : AnswerType)=>true===a.isCorrect)[0]?.text
+    }
+
     return (
         <>
             {wrongIdxList.length > 0 &&
@@ -19,12 +23,18 @@ const Wrongs = ({wrongIdxList}: {
             {list?.map((quiz) => (
                 <QuizContainer key={quiz.idx}>
                     <summary style={{fontSize: '1.1rem'}}>{quiz.q}</summary>
-                    <span>정답: {quiz.a.filter((a : AnswerType)=>true===a.isCorrect)[0]?.text}</span> 
+                    <StyledSpan>정답: {getAnswer(quiz.a)}</StyledSpan> 
+                    {quiz.why && <StyledSpan>이유: {quiz.why}</StyledSpan>}
                 </QuizContainer>
             ))}
         </>
     )
 }
+
+const StyledSpan = styled.span`
+display: block;
+margin-top: 0.5rem;
+`;
 
 const BigP = styled.p`
 font-size: 1.3rem;

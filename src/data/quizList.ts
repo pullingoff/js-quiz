@@ -24,7 +24,6 @@ const orgQuizzes : IQuiz[] = [
                 isCorrect: false
             },
         ],
-        why: ""
     },
     {
         idx: 1,
@@ -69,7 +68,8 @@ const orgQuizzes : IQuiz[] = [
                 text: "테크 스택: 원시 타입 데이터를 저장함",
                 isCorrect: true
             }
-        ]
+        ],
+        why: "'테크 스택'이라는 영역은 존재하지 않습니다."
     },
     {   
         idx: 3,
@@ -91,7 +91,8 @@ const orgQuizzes : IQuiz[] = [
                 text: "case",
                 isCorrect: false
             }
-        ]
+        ],
+        why: "'this'는 예약어지만 'that'은 없습니다."
     },
 ]
 
